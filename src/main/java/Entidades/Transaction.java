@@ -15,8 +15,8 @@ public class Transaction {
     private Float amount;
     //user
     @ManyToOne
-    @JoinColumn(name = "employede_id")
-    private Employede employede;  // falta crear la entidad empleado
+    @JoinColumn(name = "employee_id")
+    private Employee employee_id;  // falta crear la entidad empleado
     //enterpice
     @ManyToOne
     @JoinColumn(name = "enterpice_id")
@@ -51,20 +51,20 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Employede getEmployede() {
-        return employede;
+    public Employee getEmployede() {
+        return employee;
     }
 
-    public void setEmployede(Employede employede) {
-        this.employede = employede;
+    public void setEmployede(Employee employede) {
+        this.employee = employee;
     }
 
-    public Enterpice getEnterpice() {
-        return enterpice;
+    public Enterprice getEnterpice() {
+        return enterprice;
     }
 
-    public void setEnterpice(Enterpice enterpice) {
-        this.enterpice = enterpice;
+    public void setEnterpice(Enterprice enterpice) {
+        this.enterprice = enterprice;
     }
 
     public Date getCreatedAt() {
