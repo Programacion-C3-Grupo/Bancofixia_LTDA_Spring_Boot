@@ -2,6 +2,7 @@ package Entidades;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -38,7 +39,7 @@ public class Employee {
 
     }
 
-    public Employee(Long documentId, String name, String email, String image, String phone, boolean admin, Enterprise enterprise, List<Transaction> transactionList) {
+    public Employee(Long documentId, String name, String email, String image, String phone, boolean admin, Enterprise enterprise) {
         this.documentId = documentId;
         this.name = name;
         this.email = email;
@@ -46,7 +47,7 @@ public class Employee {
         this.phone = phone;
         this.admin = admin;
         this.enterprise = enterprise;
-        this.transactionList = transactionList;
+        this.transactionList = new ArrayList<>();
     }
 
     //Getters and Setters
@@ -118,7 +119,7 @@ public class Employee {
         return transactionList;
     }
 
-    public void setTransactionList(List<Transaction> transactionList) {
-        this.transactionList = transactionList;
+    public void addTransaction(Transaction transaction) {
+        this.transactionList.add(transaction);
     }
 }

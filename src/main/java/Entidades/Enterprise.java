@@ -1,8 +1,7 @@
 package Entidades;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 public class Enterprise {
@@ -36,13 +35,13 @@ public class Enterprise {
 
     }
 
-    public Enterprise(String nit, String name, String phone, String address, List<Employee> employeeList, List<Transaction> transactionList) {
+    public Enterprise(String nit, String name, String phone, String address) {
         this.nit = nit;
         this.name = name;
         this.phone = phone;
         this.address = address;
-        this.employeeList = employeeList;
-        this.transactionList = transactionList;
+        this.employeeList = new ArrayList<>();
+        this.transactionList = new ArrayList<>();
     }
 
     //Getters and Setters
@@ -82,15 +81,15 @@ public class Enterprise {
         return employeeList;
     }
 
-    public void setEmployeeList(List<Employee> employeeList) {
-        this.employeeList = employeeList;
+    public void addEmployee(Employee newEmployee) {
+        this.employeeList.add(newEmployee);
     }
 
     public List<Transaction> getTransactionList() {
         return transactionList;
     }
 
-    public void setTransactionList(List<Transaction> transactionList) {
-        this.transactionList = transactionList;
+    public void addTransaction(Transaction transaction) {
+        this.transactionList.add(transaction);
     }
 }
