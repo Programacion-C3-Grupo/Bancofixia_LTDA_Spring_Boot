@@ -92,4 +92,12 @@ public class Enterprise {
     public void addTransaction(Transaction transaction) {
         this.transactionList.add(transaction);
     }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public Date getUpdateAt() {
+        return updateAt;
+    }
 }

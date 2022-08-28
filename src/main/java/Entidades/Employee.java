@@ -122,4 +122,12 @@ public class Employee {
     public void addTransaction(Transaction transaction) {
         this.transactionList.add(transaction);
     }
+
+    public Date getUpdateAt() {
+        return updateAt;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
 }

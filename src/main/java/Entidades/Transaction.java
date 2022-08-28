@@ -76,4 +76,8 @@ public class Transaction {
     public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
     }
+
+    public Date getCreatedAt() { return createdAt; }
+
+    public Date getUpdateAt() { return updateAt; }
 }
