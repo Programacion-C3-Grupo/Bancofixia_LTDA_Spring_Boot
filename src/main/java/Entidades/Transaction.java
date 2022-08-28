@@ -1,32 +1,42 @@
 package Entidades;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
 import java.util.Date;
 
 @Entity
 public class Transaction {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-
     private Long id;
+
     private String concept;
     private Float amount;
-    //user
+
     @ManyToOne
     @JoinColumn(name = "employee_id")
-    private Employee employee_id;  // falta crear la entidad empleado
-    //enterpice
+    private Employee employee;
+
     @ManyToOne
-    @JoinColumn(name = "enterpice_id")
-    private Enterpice enterpice;   //Falta crear la entidad empresa
+    @JoinColumn(name = "enterprise_id")
+    private Enterprise enterprise;
+
     private Date createdAt;
     private Date updateAt;
 
-    public Transaction() {
+    //Constructor
+    public Transaction(){
+
     }
 
+    public Transaction(String concept, Float amount, Employee employee, Enterprise enterprise) {
+        this.concept = concept;
+        this.amount = amount;
+        this.employee = employee;
+        this.enterprise = enterprise;
+    }
+
+    //Getters and Setters
     public Long getId() {
         return id;
     }
@@ -51,35 +61,19 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Employee getEmployede() {
+    public Employee getEmployee() {
         return employee;
     }
 
-    public void setEmployede(Employee employede) {
+    public void setEmployee(Employee employee) {
         this.employee = employee;
     }
 
-    public Enterprice getEnterpice() {
-        return enterprice;
+    public Enterprise getEnterprise() {
+        return enterprise;
     }
 
-    public void setEnterpice(Enterprice enterpice) {
-        this.enterprice = enterprice;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
     }
 }

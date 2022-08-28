@@ -1,6 +1,5 @@
 package Entidades;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
@@ -8,99 +7,118 @@ import java.util.List;
 @Entity
 
 public class Employee {
-    //id
-    @employee_id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long employee_id;
+    private Long id;
 
-    //name
+    @Column(unique=true)
+    private Long documentId;
 
-    private String name; //no esta en el diagrama pero debe tener un nombre entiendo
+    private String name;
 
-    //email
-    @email(unique=true)
+    @Column(unique=true)
     private String email;
 
-    //profile
-    @OneToOne
-    @JoinColumn(name = "profile")
-    private Employee profile;
-
-    //role
-
-    @OneToMany
-    @JoinColumn(name = "Enum_RoleName") //crear Enum_RoleName como es la conexion?
-    private Employee role;
-
-    //enterprise
+    private String image;
+    private String phone;
+    private boolean admin;
 
     @ManyToOne
-    @JoinColumn(name = "Enterprise") //crear
-    private Employee enterprise;
+    @JoinColumn(name = "Enterprise")
+    private Enterprise enterprise;
 
-    //transaction
+    @OneToMany(mappedBy = "transaction")
+    private List<Transaction> transactionList;
 
-    @ManyToOne
-    @JoinColumn(name = "id")
-    private Employee Transaction;
-
-    //updateAt
     private Date updateAt;
-
-    //createAt
-
     private Date createAt;
 
-    //Getters
+    //Constructor
+    public Employee () {
+
+    }
+
+    public Employee(Long documentId, String name, String email, String image, String phone, boolean admin, Enterprise enterprise, List<Transaction> transactionList) {
+        this.documentId = documentId;
+        this.name = name;
+        this.email = email;
+        this.image = image;
+        this.phone = phone;
+        this.admin = admin;
+        this.enterprise = enterprise;
+        this.transactionList = transactionList;
+    }
+
+    //Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(Long documentId) {
+        this.documentId = documentId;
+    }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public Employee getRole() {
-        return role;
-    }
-
-    public Employee getEnterprise() {
-        return enterprise;
-    }
-
-
-    //Setters
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setRole(Employee role) {
-        this.role = role;
+    public String getImage() {
+        return image;
     }
 
-    public void setEnterprise(Employee enterprise) {
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
     }
 
+    public List<Transaction> getTransactionList() {
+        return transactionList;
+    }
 
-    //Builder
-
-
-    public Employee(Long employee_id, String name, String email, Employee profile, Employee role, Employee enterprise, Employee transaction, Date updateAt, Date createAt) {
-        this.employee_id = employee_id;
-        this.name = name;
-        this.email = email;
-        this.profile = profile;
-        this.role = role;
-        this.enterprise = enterprise;
-        Transaction = transaction;
-        this.updateAt = updateAt;
-        this.createAt = createAt;
+    public void setTransactionList(List<Transaction> transactionList) {
+        this.transactionList = transactionList;
     }
 }
