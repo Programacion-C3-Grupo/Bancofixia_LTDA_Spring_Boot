@@ -1,4 +1,4 @@
-package Entidades;
+package com.ProgramacionC3.ProyectoCiclo3.entities;
 
 import javax.persistence.*;
 import java.util.Date;

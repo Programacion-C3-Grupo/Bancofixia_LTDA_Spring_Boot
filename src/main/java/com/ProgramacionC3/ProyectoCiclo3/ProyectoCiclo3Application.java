@@ -1,15 +1,12 @@
 package com.ProgramacionC3.ProyectoCiclo3;
 
-import Entidades.Employee;
-import Entidades.Enterprise;
-import Entidades.Transaction;
-import org.springframework.boot.SpringApplication;
+import com.ProgramacionC3.ProyectoCiclo3.entities.Employee;
+import com.ProgramacionC3.ProyectoCiclo3.entities.Enterprise;
+import com.ProgramacionC3.ProyectoCiclo3.entities.Transaction;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @SpringBootApplication
 @RestController
