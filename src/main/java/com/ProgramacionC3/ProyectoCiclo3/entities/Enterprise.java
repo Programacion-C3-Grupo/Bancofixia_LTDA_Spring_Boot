@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
+@Table(name="Enterprise")
 public class Enterprise {
 
     @Id
@@ -19,12 +20,10 @@ public class Enterprise {
     private String phone;
     private String address;
 
-    @OneToMany
-    @JoinColumn(name = "employee_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "enterprise")
     private List<Employee> employeeList;
 
-    @OneToMany
-    @JoinColumn(name = "transaction_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "enterprise")
     private List<Transaction> transactionList;
 
     private Date createdAt;

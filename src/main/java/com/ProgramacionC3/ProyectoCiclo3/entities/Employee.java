@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-
+@Table(name="Employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,10 +25,10 @@ public class Employee {
     private boolean admin;
 
     @ManyToOne
-    @JoinColumn(name = "Enterprise")
+    @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
 
-    @OneToMany(mappedBy = "transaction")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private List<Transaction> transactionList;
 
     private Date updateAt;
