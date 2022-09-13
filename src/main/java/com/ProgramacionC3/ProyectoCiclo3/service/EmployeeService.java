@@ -11,5 +11,20 @@ import java.util.List;
 public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
-    public void List<Employee>(Employee employee){ employeeRepository.save(employee); }
+
+    public List<Employee> listar(){
+        return employeeRepository.findAll();
+    }
+
+    public void insertar(Employee employee){
+        employeeRepository.save(employee);
+    }
+
+    public void actualizar(Employee employee){
+        employeeRepository.save(employee);
+    }
+
+    public void eliminar(Employee employee){
+        employeeRepository.delete(employee);
+    }
 }
