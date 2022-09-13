@@ -16,24 +16,22 @@ public class EnterpriseController {
 
     @GetMapping
     public List<Enterprise> listar(){
-
-        return null;
+        return enterpriseService.listar();
     }
 
-    @PostMapping("api/empresa")
-    public Enterprise insertarEmpresa(@RequestBody Enterprise ent){
+    @PostMapping
+    public void insertar(@RequestBody Enterprise ent){
         enterpriseService.insertar(ent);
-        return ent;
     }
 
-    //@PutMapping
-    //public Enterprise actualizar(@PutMapping Enterprise ent){
-      //  return enterpriseService.actualizar(ent);
-    //}
+    @PutMapping
+    public void actualizar(@RequestBody Enterprise ent){
+        enterpriseService.actualizar(ent);
+    }
 
-    //@DeleteMapping
-    //public void eliminar (@RequestBody Enterprise ent){
-      //  enterpriseService.eliminar(ent);
-    //}
+    @DeleteMapping
+    public void eliminar (@RequestBody Enterprise ent){
+        enterpriseService.eliminar(ent);
+    }
 
 }

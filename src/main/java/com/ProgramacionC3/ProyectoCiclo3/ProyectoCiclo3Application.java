@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
+//@RestController
 public class ProyectoCiclo3Application {
 
 	public static void main(String[] args) {
@@ -39,9 +39,9 @@ public class ProyectoCiclo3Application {
 		//System.out.println("Primera Transacción: "+ empresaX.getEmployeeList().get(0).getTransactionList().get(0).getConcept());
 		//System.out.println("Segunda Transacción: "+ empresaX.getEmployeeList().get(1).getTransactionList().get(0).getConcept());
 	}
-	@GetMapping("/hello")
-	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return String.format("Hello %s!", name);
+	//@GetMapping("/hello")
+	//public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
+		//return String.format("Hello %s!", name);
 
-	}
+	//}
 }
