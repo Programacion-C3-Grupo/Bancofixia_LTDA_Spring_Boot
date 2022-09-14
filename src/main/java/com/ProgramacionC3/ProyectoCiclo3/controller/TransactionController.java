@@ -1,34 +1,42 @@
 package com.ProgramacionC3.ProyectoCiclo3.controller;
 
+import com.ProgramacionC3.ProyectoCiclo3.entities.Enterprise;
 import com.ProgramacionC3.ProyectoCiclo3.entities.Transaction;
+import com.ProgramacionC3.ProyectoCiclo3.service.TransactionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-
+@RequestMapping("/transacciones")
 public class TransactionController {
 
-    @GetMapping("/transaction")
+    @Autowired
+    private TransactionService transactionService;
 
-    public ResponseEntity <List <Transaction>> getTransaction(){
+    @GetMapping
 
-        return null;
+    public List<Transaction> listar(){ return transactionService.listar();}
+
+    @PostMapping
+    public void insertar(@RequestBody Transaction trans){ transactionService.insertar(trans);}
+
+    @PutMapping
+    public void actualizar(@RequestBody Transaction trans){transactionService.actualizar(trans);
     }
 
-    @GetMapping("/transaction/{id}")
+    @DeleteMapping
+    public void eliminar (@RequestBody Transaction trans){
+        transactionService.eliminar(trans);
+    }
 
-    public ResponseEntity<Transaction> getTransaction(@PathVariable Long id){
-        return null;
-    }
-                                                                                     // preguntar duda no me deja recibir la misma variable
-    @GetMapping("/transaction")
-    public ResponseEntity<Transaction> getTransaction(@RequestParam String id){
-        return null;
-    }
+
+
+
+
 
 }
+
+

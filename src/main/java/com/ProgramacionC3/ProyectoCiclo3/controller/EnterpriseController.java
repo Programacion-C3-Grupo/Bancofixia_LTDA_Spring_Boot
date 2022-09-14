@@ -20,8 +20,7 @@ public class EnterpriseController {
     }
 
     @PostMapping
-    public void insertar(@RequestBody Enterprise ent){
-        enterpriseService.insertar(ent);
+    public void insertar(@RequestBody Enterprise ent){ enterpriseService.insertar(ent);
     }
 
     @PutMapping
