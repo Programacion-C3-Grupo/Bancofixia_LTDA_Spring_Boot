@@ -8,8 +8,8 @@ import java.util.*;
 public class Enterprise {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long enterprise_id;
 
     @Column(unique=true)
     private String nit;
@@ -20,10 +20,10 @@ public class Enterprise {
     private String phone;
     private String address;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "enterprise")
+    @OneToMany(mappedBy = "enterprise")
     private List<Employee> employeeList;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "enterprise")
+    @OneToMany(mappedBy = "enterprise")
     private List<Transaction> transactionList;
 
     private Date createdAt;
@@ -43,7 +43,16 @@ public class Enterprise {
         this.transactionList = new ArrayList<>();
     }
 
-    //Getters and Setters
+    //Getters and
+
+    public Long getEnterprise_id() {
+        return enterprise_id;
+    }
+
+    public void setEnterprise_id(Long enterprise_id) {
+        this.enterprise_id = enterprise_id;
+    }
+
     public String getNit() {
         return nit;
     }

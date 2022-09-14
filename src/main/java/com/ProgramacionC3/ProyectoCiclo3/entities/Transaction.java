@@ -9,7 +9,7 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long transaction_id;
 
     private String concept;
     private Float amount;
@@ -38,12 +38,14 @@ public class Transaction {
     }
 
     //Getters and Setters
-    public Long getId() {
-        return id;
+
+
+    public Long getTransaction_id() {
+        return transaction_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTransaction_id(Long transaction_id) {
+        this.transaction_id = transaction_id;
     }
 
     public String getConcept() {

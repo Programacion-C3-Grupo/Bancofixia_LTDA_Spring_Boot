@@ -9,8 +9,8 @@ import java.util.List;
 @Table(name="Employee")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long employee_id;
 
     @Column(unique=true)
     private Long documentId;
@@ -24,11 +24,11 @@ public class Employee {
     private String phone;
     private boolean admin;
 
-    @ManyToOne
+    @ManyToOne(cascade ={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    @OneToMany(mappedBy = "employee")
     private List<Transaction> transactionList;
 
     private Date updateAt;
@@ -51,12 +51,14 @@ public class Employee {
     }
 
     //Getters and Setters
-    public Long getId() {
-        return id;
+
+
+    public Long getEmployee_id() {
+        return employee_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setEmployee_id(Long employee_id) {
+        this.employee_id = employee_id;
     }
 
     public Long getDocumentId() {
