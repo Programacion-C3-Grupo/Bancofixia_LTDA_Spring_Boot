@@ -8,27 +8,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/empresas")
+@RequestMapping
 public class EnterpriseController {
 
     @Autowired
     private EnterpriseService enterpriseService;
 
-    @GetMapping
+    @GetMapping("/empresa")
     public List<Enterprise> listar(){
         return enterpriseService.listar();
     }
 
-    @PostMapping
+    @PostMapping("/empresa")
     public void insertar(@RequestBody Enterprise ent){ enterpriseService.insertar(ent);
     }
 
-    @PutMapping
+    @PutMapping("/empresa")
     public void actualizar(@RequestBody Enterprise ent){
         enterpriseService.actualizar(ent);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/empresa")
     public void eliminar (@RequestBody Enterprise ent){
         enterpriseService.eliminar(ent);
     }
