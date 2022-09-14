@@ -1,5 +1,9 @@
 package com.ProgramacionC3.ProyectoCiclo3.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -24,10 +28,13 @@ public class Employee {
     private String phone;
     private boolean admin;
 
+    @JsonBackReference
     @ManyToOne(cascade ={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
 
+    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "employee")
     private List<Transaction> transactionList;
 

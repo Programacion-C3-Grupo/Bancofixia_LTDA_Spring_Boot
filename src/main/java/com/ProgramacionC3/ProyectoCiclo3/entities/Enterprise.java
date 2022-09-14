@@ -1,5 +1,8 @@
 package com.ProgramacionC3.ProyectoCiclo3.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -20,9 +23,13 @@ public class Enterprise {
     private String phone;
     private String address;
 
+    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "enterprise")
     private List<Employee> employeeList;
 
+    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "enterprise")
     private List<Transaction> transactionList;
 

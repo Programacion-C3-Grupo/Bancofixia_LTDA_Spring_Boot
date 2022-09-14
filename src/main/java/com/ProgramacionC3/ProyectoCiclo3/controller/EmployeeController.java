@@ -22,6 +22,7 @@ public class EmployeeController {
 
     @PutMapping
     public void actualizar (@RequestBody Employee ent) {employeeService.actualizar(ent);}
+
     @DeleteMapping
     public void eliminar (@RequestBody Employee ent) {employeeService.eliminar(ent);}
 }

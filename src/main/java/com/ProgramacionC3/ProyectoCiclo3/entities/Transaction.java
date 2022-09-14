@@ -1,5 +1,7 @@
 package com.ProgramacionC3.ProyectoCiclo3.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,16 +10,18 @@ import java.util.Date;
 public class Transaction {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long transaction_id;
 
     private String concept;
     private Float amount;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
