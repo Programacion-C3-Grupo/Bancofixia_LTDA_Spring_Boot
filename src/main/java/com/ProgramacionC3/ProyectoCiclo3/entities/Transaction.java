@@ -16,13 +16,13 @@ public class Transaction {
     private String concept;
     private Float amount;
 
-    @JsonBackReference
-    @ManyToOne
+    @JsonBackReference(value="employee-transaction")
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    @JsonBackReference
-    @ManyToOne
+    @JsonBackReference(value="enterprise-transaction")
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
 

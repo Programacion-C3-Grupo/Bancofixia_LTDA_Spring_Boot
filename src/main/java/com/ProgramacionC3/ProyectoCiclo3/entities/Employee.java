@@ -29,7 +29,7 @@ public class Employee {
     private boolean admin;
 
     @JsonBackReference
-    @ManyToOne(cascade ={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
 
