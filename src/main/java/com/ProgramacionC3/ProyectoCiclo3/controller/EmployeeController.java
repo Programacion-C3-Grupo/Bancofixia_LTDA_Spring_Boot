@@ -18,10 +18,14 @@ public class EmployeeController {
     public List<Employee> Listar() {return employeeService.listar();}
 
     @PostMapping
-    public void insertar (@RequestBody Employee ent) {employeeService.insertar(ent);}
+    public Employee insertar (@RequestBody Employee ent) {
+        return employeeService.insertar(ent);
+    }
 
     @PutMapping
-    public void actualizar (@RequestBody Employee ent) {employeeService.actualizar(ent);}
+    public Employee actualizar (@RequestBody Employee ent) {
+        return employeeService.actualizar(ent);
+    }
 
     @DeleteMapping
     public void eliminar (@RequestBody Employee ent) {employeeService.eliminar(ent);}

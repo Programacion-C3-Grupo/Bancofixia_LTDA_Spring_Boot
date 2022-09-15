@@ -17,9 +17,9 @@ public class TransactionService {
 
     public List<Transaction> listar(){ return transactionRepository.findAll();}
 
-    public void insertar (Transaction transaction) { transactionRepository.save(transaction);}
+    public Transaction insertar (Transaction transaction) { return transactionRepository.save(transaction);}
 
-    public void actualizar (Transaction transaction){transactionRepository.save(transaction);}
+    public Transaction actualizar (Transaction transaction){ return transactionRepository.save(transaction);}
 
     public void eliminar (Transaction transaction){transactionRepository.delete(transaction);}
 

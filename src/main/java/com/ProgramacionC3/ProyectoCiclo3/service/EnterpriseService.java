@@ -17,12 +17,12 @@ public class EnterpriseService {
         return enterpriseRepository.findAll();
     }
 
-    public void insertar(Enterprise enterprise){
-        enterpriseRepository.save(enterprise);
+    public Enterprise insertar(Enterprise enterprise){
+        return enterpriseRepository.save(enterprise);
     }
 
-    public void actualizar(Enterprise enterprise){
-        enterpriseRepository.save(enterprise);
+    public Enterprise actualizar(Enterprise enterprise){
+        return enterpriseRepository.save(enterprise);
     }
 
     public void eliminar(Enterprise enterprise){

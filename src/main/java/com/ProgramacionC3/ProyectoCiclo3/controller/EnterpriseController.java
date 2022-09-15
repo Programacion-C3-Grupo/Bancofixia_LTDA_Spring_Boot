@@ -20,12 +20,13 @@ public class EnterpriseController {
     }
 
     @PostMapping
-    public void insertar(@RequestBody Enterprise ent){ enterpriseService.insertar(ent);
+    public Enterprise insertar(@RequestBody Enterprise ent){
+        return enterpriseService.insertar(ent);
     }
 
     @PutMapping
-    public void actualizar(@RequestBody Enterprise ent){
-        enterpriseService.actualizar(ent);
+    public Enterprise actualizar(@RequestBody Enterprise ent){
+        return enterpriseService.actualizar(ent);
     }
 
     @DeleteMapping

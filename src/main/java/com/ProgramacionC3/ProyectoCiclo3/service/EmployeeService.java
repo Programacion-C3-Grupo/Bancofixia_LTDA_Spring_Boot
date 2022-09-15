@@ -16,12 +16,12 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public void insertar(Employee employee){
-        employeeRepository.save(employee);
+    public Employee insertar(Employee employee){
+        return employeeRepository.save(employee);
     }
 
-    public void actualizar(Employee employee){
-        employeeRepository.save(employee);
+    public Employee actualizar(Employee employee){
+        return employeeRepository.save(employee);
     }
 
     public void eliminar(Employee employee){

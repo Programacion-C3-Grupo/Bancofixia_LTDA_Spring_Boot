@@ -21,21 +21,16 @@ public class TransactionController {
     public List<Transaction> listar(){ return transactionService.listar();}
 
     @PostMapping
-    public void insertar(@RequestBody Transaction trans){ transactionService.insertar(trans);}
+    public Transaction insertar(@RequestBody Transaction trans){ return transactionService.insertar(trans);}
 
     @PutMapping
-    public void actualizar(@RequestBody Transaction trans){transactionService.actualizar(trans);
+    public Transaction actualizar(@RequestBody Transaction trans){ return transactionService.actualizar(trans);
     }
 
     @DeleteMapping
     public void eliminar (@RequestBody Transaction trans){
         transactionService.eliminar(trans);
     }
-
-
-
-
-
 
 }
 
