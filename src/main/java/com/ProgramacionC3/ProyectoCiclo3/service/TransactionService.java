@@ -1,6 +1,7 @@
 package com.ProgramacionC3.ProyectoCiclo3.service;
 
 
+import com.ProgramacionC3.ProyectoCiclo3.entities.Employee;
 import com.ProgramacionC3.ProyectoCiclo3.entities.Enterprise;
 import com.ProgramacionC3.ProyectoCiclo3.entities.Transaction;
 import com.ProgramacionC3.ProyectoCiclo3.repository.TransactionRepository;
@@ -16,6 +17,10 @@ public class TransactionService {
     private TransactionRepository transactionRepository;
 
     public List<Transaction> listar(){ return transactionRepository.findAll();}
+
+    public Transaction obtenerPorId(Long id) {
+        return transactionRepository.getById(id);
+    }
 
     public Transaction insertar (Transaction transaction) { return transactionRepository.save(transaction);}
 

@@ -1,4 +1,4 @@
-package com.ProgramacionC3.ProyectoCiclo3.entities.controller.frontend;
+package com.ProgramacionC3.ProyectoCiclo3.controller.frontend;
 
 import com.ProgramacionC3.ProyectoCiclo3.entities.Employee;
 import org.springframework.stereotype.Controller;

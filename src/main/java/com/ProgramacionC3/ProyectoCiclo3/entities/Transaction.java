@@ -1,10 +1,12 @@
 package com.ProgramacionC3.ProyectoCiclo3.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name="Transaction")
 public class Transaction {
@@ -27,7 +29,7 @@ public class Transaction {
     private Enterprise enterprise;
 
     private Date createdAt;
-    private Date updateAt;
+    private Date updatedAt;
 
     //Constructor
     public Transaction(){
@@ -86,5 +88,13 @@ public class Transaction {
 
     public Date getCreatedAt() { return createdAt; }
 
-    public Date getUpdateAt() { return updateAt; }
+    public Date getUpdatedAt() { return updatedAt; }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 }

@@ -2,13 +2,15 @@ package com.ProgramacionC3.ProyectoCiclo3.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name="Employee")
 public class Employee {
@@ -38,8 +40,8 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private List<Transaction> transactionList;
 
-    private Date updateAt;
-    private Date createAt;
+    private Date createdAt;
+    private Date updatedAt;
 
     //Constructor
     public Employee () {
@@ -132,12 +134,20 @@ public class Employee {
         this.transactionList.add(transaction);
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override
@@ -152,8 +162,8 @@ public class Employee {
                 ", admin=" + admin +
                 ", enterprise=" + enterprise +
                 ", transactionList=" + transactionList +
-                ", updateAt=" + updateAt +
-                ", createAt=" + createAt +
+                ", updateAt=" + updatedAt +
+                ", createAt=" + createdAt +
                 '}';
     }
 }

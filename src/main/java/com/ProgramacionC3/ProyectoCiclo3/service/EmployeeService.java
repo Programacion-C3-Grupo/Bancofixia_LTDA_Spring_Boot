@@ -16,6 +16,10 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
+    public Employee obtenerPorId(Long id) {
+        return employeeRepository.getById(id);
+    }
+
     public Employee insertar(Employee employee){
         return employeeRepository.save(employee);
     }
