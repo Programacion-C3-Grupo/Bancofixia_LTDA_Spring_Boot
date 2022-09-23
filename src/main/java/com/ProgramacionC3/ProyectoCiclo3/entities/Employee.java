@@ -139,4 +139,21 @@ public class Employee {
     public Date getCreateAt() {
         return createAt;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employee_id=" + employee_id +
+                ", documentId=" + documentId +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", image='" + image + '\'' +
+                ", phone='" + phone + '\'' +
+                ", admin=" + admin +
+                ", enterprise=" + enterprise +
+                ", transactionList=" + transactionList +
+                ", updateAt=" + updateAt +
+                ", createAt=" + createAt +
+                '}';
+    }
 }

@@ -1,4 +1,4 @@
-package com.ProgramacionC3.ProyectoCiclo3.controller;
+package com.ProgramacionC3.ProyectoCiclo3.entities.controller;
 
 import com.ProgramacionC3.ProyectoCiclo3.entities.Enterprise;
 import com.ProgramacionC3.ProyectoCiclo3.service.EnterpriseService;
