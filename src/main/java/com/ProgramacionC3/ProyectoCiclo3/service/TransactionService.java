@@ -26,8 +26,9 @@ public class TransactionService {
 
     public Transaction actualizar (Transaction transaction){ return transactionRepository.save(transaction);}
 
-    public void eliminar (Transaction transaction){transactionRepository.delete(transaction);}
-
-
+    public String eliminar (Transaction transaction){
+        transactionRepository.delete(transaction);
+        return "Movimiento eliminado exitosamente";
+    }
 
 }

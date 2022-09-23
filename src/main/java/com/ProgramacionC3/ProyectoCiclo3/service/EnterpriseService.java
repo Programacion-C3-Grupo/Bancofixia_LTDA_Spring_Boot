@@ -30,8 +30,9 @@ public class EnterpriseService {
         return enterpriseRepository.save(enterprise);
     }
 
-    public void eliminar(Enterprise enterprise){
+    public String eliminar(Enterprise enterprise){
         enterpriseRepository.delete(enterprise);
+        return "Empresa eliminada exitosamente";
     }
 
 }

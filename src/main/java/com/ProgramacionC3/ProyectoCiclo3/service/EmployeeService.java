@@ -28,7 +28,8 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
-    public void eliminar(Employee employee){
+    public String eliminar(Employee employee){
         employeeRepository.delete(employee);
+        return "Empleado eliminado exitosamente";
     }
 }
