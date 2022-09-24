@@ -22,14 +22,14 @@ public class FrontEndController {
         return "index";
     }
 
-    @GetMapping("/Employees")
+    @GetMapping("/empleado")
     public String getEmployee(Model model)
     {
-        model.addAttribute("formularioEmployee",new Employee());
-        return "Employees";
+        model.addAttribute("formularioEmpleado",new Employee());
+        return "empleado";
     }
-    @PostMapping("/Employees")
-    public String postEmployee(@ModelAttribute("formularioEmployee") Employee employee)
+    @PostMapping("/empleado")
+    public String postEmployee(@ModelAttribute("formularioEmpleado") Employee employee)
     {
         System.out.println(employee);
         return "redirect:/employeetable";
@@ -37,7 +37,7 @@ public class FrontEndController {
 
     @GetMapping("/employeetable")
     public String getWelcome(Model model){
-        model.addAttribute("employee", employeeService.listar());
+        model.addAttribute("employees", employeeService.listar());
         return "employeetable";
     }
 
