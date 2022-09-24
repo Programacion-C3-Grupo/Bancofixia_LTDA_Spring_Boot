@@ -1,5 +1,6 @@
 package com.ProgramacionC3.ProyectoCiclo3.controller.frontend;
 
+<<<<<<< Updated upstream
 import com.ProgramacionC3.ProyectoCiclo3.entities.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,4 +27,21 @@ public class FrontEndController {
         System.out.println(employee);
         return "redirect:/Employees";
     }
+=======
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+
+public class FrontEndController {
+
+    @GetMapping("/")
+    public String getIndex(){
+        return "index";
+
+    }
+
+
+
+>>>>>>> Stashed changes
 }
