@@ -1,8 +1,11 @@
 package com.ProgramacionC3.ProyectoCiclo3.controller.frontend;
 
 //<<<<<<< Updated upstream
+import com.ProgramacionC3.ProyectoCiclo3.controller.TransactionController;
 import com.ProgramacionC3.ProyectoCiclo3.entities.Employee;
+import com.ProgramacionC3.ProyectoCiclo3.entities.Transaction;
 import com.ProgramacionC3.ProyectoCiclo3.service.EmployeeService;
+import com.ProgramacionC3.ProyectoCiclo3.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +18,15 @@ public class FrontEndController {
 
     @Autowired
     EmployeeService employeeService;
+
+    @Autowired
+    TransactionService transactionService;
+
+    @Autowired
+    TransactionController transactionController = new TransactionController();
+
+
+
 
     @GetMapping("/")
     public String getIndex()
@@ -39,6 +51,27 @@ public class FrontEndController {
     public String getWelcome(Model model){
         model.addAttribute("employees", employeeService.listar());
         return "employeetable";
+    }
+
+    @GetMapping("/Transaction")
+    public String getTransaction(Model model)
+    {
+        model.addAttribute("FormularioTrasaccion",new Transaction());
+        return "Transaction" ;
+    }
+    @PostMapping("/Transaction")
+    public String postTransaction(@ModelAttribute("FormularioTrasaccion")Transaction transaction)
+    {
+
+        transactionController.insertar(transaction);
+        System.out.println(transaction);
+        return "redirect:/TransactionTable";
+    }
+
+    @GetMapping("/TransactionTable")
+    public String TransactionTable(Model model){
+        model.addAttribute("Transactions", transactionService.listar());
+        return "TransactionTable";
     }
 
 }

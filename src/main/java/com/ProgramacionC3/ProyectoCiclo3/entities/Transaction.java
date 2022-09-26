@@ -97,4 +97,18 @@ public class Transaction {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transaction_id=" + transaction_id +
+                ", concept='" + concept + '\'' +
+                ", amount=" + amount +
+                ", employee=" + employee.getEmployee_id() +
+                ", enterprise=" + enterprise +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }

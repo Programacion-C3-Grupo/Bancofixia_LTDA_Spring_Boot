@@ -28,6 +28,7 @@ background-color: grey;
     width:150px;
     height:40px;
     margin-left: 55px;
+    font-size: 14px;
 }
 
 .botones:hover {
@@ -83,6 +84,11 @@ background-color: grey;
 .empre:hover {
 
     background-color: rgb(71, 34, 34);
+}
+
+
+.rectangulo2{
+
 }
 
 
