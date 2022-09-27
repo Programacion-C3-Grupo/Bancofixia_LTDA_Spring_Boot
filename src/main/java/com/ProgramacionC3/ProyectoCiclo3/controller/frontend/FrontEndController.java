@@ -36,7 +36,7 @@ public class FrontEndController {
     }
 
     @GetMapping("/empleado")
-    public String getEmployee(Model model)
+    public String getempleado(Model model)
     {
         model.addAttribute("formularioEmpleado",new Employee());
         return "empleado";
@@ -44,9 +44,9 @@ public class FrontEndController {
     @PostMapping("/empleado")
     public String postEmployee(@ModelAttribute("formularioEmpleado") Employee employee)
     {
-       /* EmployeeController.insertar(employee);*/
+        /*EmployeeController.insertar(employee);*/
         System.out.println(employee);
-        return "redirect:/empleado";
+        return "redirect:/employeetable";
     }
 
     @GetMapping("/employeetable")
