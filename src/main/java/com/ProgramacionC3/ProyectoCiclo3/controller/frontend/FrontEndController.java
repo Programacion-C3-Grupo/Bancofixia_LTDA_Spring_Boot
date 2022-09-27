@@ -2,6 +2,7 @@ package com.ProgramacionC3.ProyectoCiclo3.controller.frontend;
 
 //<<<<<<< Updated upstream
 
+import com.ProgramacionC3.ProyectoCiclo3.controller.EmployeeController;
 import com.ProgramacionC3.ProyectoCiclo3.controller.EnterpriseController;
 import com.ProgramacionC3.ProyectoCiclo3.controller.TransactionController;
 import com.ProgramacionC3.ProyectoCiclo3.entities.Employee;
@@ -35,6 +36,8 @@ public class FrontEndController {
     @Autowired
     TransactionController transactionController = new TransactionController();
 
+    @Autowired
+    EmployeeController employeeController = new EmployeeController();
 
 
 
@@ -53,7 +56,7 @@ public class FrontEndController {
     @PostMapping("/empleado")
     public String postEmployee(@ModelAttribute("formularioEmpleado") Employee employee)
     {
-       /* EmployeeController.insertar(employee);*/
+        employeeController.insertar(employee);
         System.out.println(employee);
         return "redirect:/empleado";
     }
