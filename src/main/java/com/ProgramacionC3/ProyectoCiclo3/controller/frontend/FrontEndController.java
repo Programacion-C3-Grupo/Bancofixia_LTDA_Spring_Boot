@@ -1,10 +1,13 @@
 package com.ProgramacionC3.ProyectoCiclo3.controller.frontend;
 
 //<<<<<<< Updated upstream
+import com.ProgramacionC3.ProyectoCiclo3.controller.EnterpriseController;
 import com.ProgramacionC3.ProyectoCiclo3.controller.TransactionController;
 import com.ProgramacionC3.ProyectoCiclo3.entities.Employee;
+import com.ProgramacionC3.ProyectoCiclo3.entities.Enterprise;
 import com.ProgramacionC3.ProyectoCiclo3.entities.Transaction;
 import com.ProgramacionC3.ProyectoCiclo3.service.EmployeeService;
+import com.ProgramacionC3.ProyectoCiclo3.service.EnterpriseService;
 import com.ProgramacionC3.ProyectoCiclo3.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +24,12 @@ public class FrontEndController {
 
     @Autowired
     TransactionService transactionService;
+
+    @Autowired
+    EnterpriseService enterpriseService;
+
+    @Autowired
+    EnterpriseController enterpriseController = new EnterpriseController();
 
     @Autowired
     TransactionController transactionController = new TransactionController();
@@ -72,6 +81,28 @@ public class FrontEndController {
     public String TransactionTable(Model model){
         model.addAttribute("Transactions", transactionService.listar());
         return "TransactionTable";
+    }
+
+    //---------------Empresa----------------
+    @GetMapping("/empresa")
+    public String getEmpresa(Model model)
+    {
+        model.addAttribute("formularioEmpresa",new Enterprise());
+        return "empresa" ;
+    }
+    @PostMapping("/empresa")
+    public String postEmpresa(@ModelAttribute("formularioEmpresa")Enterprise enterprise)
+    {
+
+        enterpriseController.insertar(enterprise);
+        System.out.println(enterprise);
+        return "redirect:/empresaTable";
+    }
+
+    @GetMapping("/empresaTable")
+    public String empresaTable(Model model){
+        model.addAttribute("empresas", enterpriseController.listar());
+        return "empresaTable";
     }
 
 }

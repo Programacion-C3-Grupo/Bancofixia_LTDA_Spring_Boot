@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="css/estilos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Empresa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <div class="rectangulo">
+        <img class="img" src="img/DOM3.png" h>
+        <div style="margin-top: 100px">
+            <button class="botones">Empresas</button>
+        </div>
+    </div>
+
+    <div class="general">
+        <form method="post" th:action="@{/empresa}" class="position-relative text-center"
+              th:object="${formularioEmpresa}">
+            <div class="position-relative text-center">
+                <div>
+                    <h2> Nueva Empresa </h2>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" th:field="*{nit}" id="floatingNit">
+                    <label for="floatingNit">Nit</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" th:field="*{name}" id="floatingName">
+                    <label for="floatingName">Nnmbre de Empresa</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" th:field="*{phone}" id="floatingPhone">
+                    <label for="floatingPhone">Telefono de Empresa</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" th:field="*{address}" id="floatingAddres">
+                    <label for="floatingAddres">Dirección de Empresa</label>
+                </div>
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-success">Aceptar</button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success">Ir a la lista</button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+</body>
+</html>
