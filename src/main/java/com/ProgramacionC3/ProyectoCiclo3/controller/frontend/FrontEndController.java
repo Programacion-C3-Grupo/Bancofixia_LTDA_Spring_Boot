@@ -46,7 +46,7 @@ public class FrontEndController {
     {
         return "index";
     }
-
+    //------Empleado------------------------------
     @GetMapping("/empleado")
     public String getEmployee(Model model)
     {
@@ -61,18 +61,18 @@ public class FrontEndController {
         return "redirect:/empleado";
     }
 
-    @GetMapping("/employeetable")
-    public String getemployeetable (Model model){
-        model.addAttribute("employees", employeeService.listar());
-        return "employeetable";
-    }
+    //@GetMapping("/employeetable")
+    //public String getemployeetable (Model model){
+      //  model.addAttribute("employees", employeeService.listar());
+       // return "employeetable";
+    //}
 
-    @PostMapping("/employeetable")
+    @GetMapping("/employeetable")
     public String employeetable (Model model){
-        model.addAttribute("Employees", employeeService.listar());
+        model.addAttribute("employees", employeeService.listar());
         return "redirect:/employeetable";
     }
-
+    //----------------Transaccion-------------------------------
     @GetMapping("/Transaction")
     public String getTransaction(Model model)
     {
