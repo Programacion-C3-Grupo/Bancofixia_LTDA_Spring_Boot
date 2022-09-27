@@ -1,14 +1,22 @@
-package Entidades;
+package com.ProgramacionC3.ProyectoCiclo3.entities;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
+@Table(name="Enterprise")
 public class Enterprise {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long enterprise_id;
 
     @Column(unique=true)
     private String nit;
@@ -19,16 +27,18 @@ public class Enterprise {
     private String phone;
     private String address;
 
-    @OneToMany
-    @JoinColumn(name = "employee_id")
+    @JsonManagedReference
+    @JsonIgnore
+    @OneToMany(mappedBy = "enterprise")
     private List<Employee> employeeList;
 
-    @OneToMany
-    @JoinColumn(name = "transaction_id")
+    @JsonManagedReference
+    @JsonIgnore
+    @OneToMany(mappedBy = "enterprise")
     private List<Transaction> transactionList;
 
     private Date createdAt;
-    private Date updateAt;
+    private Date updatedAt;
 
     //Constructor
     public Enterprise(){
@@ -44,7 +54,16 @@ public class Enterprise {
         this.transactionList = new ArrayList<>();
     }
 
-    //Getters and Setters
+    //Getters and
+
+    public Long getEnterprise_id() {
+        return enterprise_id;
+    }
+
+    public void setEnterprise_id(Long enterprise_id) {
+        this.enterprise_id = enterprise_id;
+    }
+
     public String getNit() {
         return nit;
     }
@@ -97,7 +116,15 @@ public class Enterprise {
         return createdAt;
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

@@ -1,16 +1,23 @@
-package Entidades;
+package com.ProgramacionC3.ProyectoCiclo3.entities;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity
+@Table(name="Employee")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long employee_id;
 
     @Column(unique=true)
     private Long documentId;
@@ -24,15 +31,18 @@ public class Employee {
     private String phone;
     private boolean admin;
 
-    @ManyToOne
-    @JoinColumn(name = "Enterprise")
+    @JsonBackReference
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
 
-    @OneToMany(mappedBy = "transaction")
+    @JsonManagedReference
+    @JsonIgnore
+    @OneToMany(mappedBy = "employee")
     private List<Transaction> transactionList;
 
-    private Date updateAt;
-    private Date createAt;
+    private Date createdAt;
+    private Date updatedAt;
 
     //Constructor
     public Employee () {
@@ -51,12 +61,14 @@ public class Employee {
     }
 
     //Getters and Setters
-    public Long getId() {
-        return id;
+
+
+    public Long getEmployee_id() {
+        return employee_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setEmployee_id(Long employee_id) {
+        this.employee_id = employee_id;
     }
 
     public Long getDocumentId() {
@@ -123,11 +135,36 @@ public class Employee {
         this.transactionList.add(transaction);
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employee_id=" + employee_id +
+                ", documentId=" + documentId +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", image='" + image + '\'' +
+                ", phone='" + phone + '\'' +
+                ", admin=" + admin +
+                ", enterprise=" + enterprise +
+                ", transactionList=" + transactionList +
+                ", updateAt=" + updatedAt +
+                ", createAt=" + createdAt +
+                '}';
     }
 }
