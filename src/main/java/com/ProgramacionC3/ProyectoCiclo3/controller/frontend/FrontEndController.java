@@ -112,7 +112,7 @@ public class FrontEndController {
 
     @GetMapping("/empresaTable")
     public String empresaTable(Model model){
-        model.addAttribute("empresas", enterpriseController.listar());
+        model.addAttribute("empresas", enterpriseService.listar());
         return "empresaTable";
     }
 
