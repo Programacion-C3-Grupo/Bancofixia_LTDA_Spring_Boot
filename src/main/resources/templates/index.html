@@ -3,36 +3,31 @@
 <head>
 
     <link href="css/estilos.css" rel="stylesheet" >
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 
-
-
-
     <div class="rectangulo">
         <img class="img" src="img/DOM3.png"h>
+    <br>
+    <br>
 
-
-        <div style="margin-top: 100px"><button class="botones">Ingresos y engresos</button></div>
-        <br>
-        <div style="margin-top: 30px"><button class="botones">Usuarios</button></div>
-        <br>
-        <div style="margin-top: 30px"><button class="botones">Empresas</button></div>
     </div>
 
 <div class="general">
 
-    <div><button class="ingre">Sistema de gestion de ingresos y gastos.</button></div>
-    <div><button class="usu">Sitema de gestion usuarios.</button></div>
-    <div><button class="empre">Sitemas de gestion de empresas.</button></div>
-
-
+    <div class="d-grid gap-2" >
+        <form>
+            <div class="position-relative text-center"><button type="submit" formaction="/TransactionTable" class="btn btn-primary btn-lg"> Sistema de gestion de ingresos y gastos.</button></div>
+            <br>
+            <div class="position-relative text-center"><button type="submit" formaction="/employeetable" class="btn btn-primary btn-lg"> Sitema de gestion usuarios.</button></div>
+            <br>
+            <div class="position-relative text-center"><button type="submit" formaction="/empresaTable" class="btn btn-primary btn-lg"> Sitemas de gestion de empresas.</button></div>
+        </form>
+    </div>
 </div>
-
-
-
 </body>
 </html>

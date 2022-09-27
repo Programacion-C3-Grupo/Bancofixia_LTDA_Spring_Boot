@@ -10,8 +10,25 @@
 <body>
     <div class="rectangulo">
         <img class="img" src="img/DOM3.png">
-        <div style="margin-top: 100px">
-            <button class="botones">Empresas</button>
+        <br>
+        <br>
+
+        <div class="position-relative text-center">
+            <form>
+                <button type="submit" formaction="/TransactionTable" class="btn btn-success">  Transacciones  </button>
+            </form>
+        </div>
+        <br>
+        <div class="position-relative text-center">
+            <form>
+                <button type="submit" formaction="/employeetable" class="btn btn-success">  Empleados  </button>
+            </form>
+        </div>
+        <br>
+        <div class="position-relative text-center">
+            <form>
+                <button type="submit" formaction="/empresaTable" class="btn btn-success"> Empresas  </button>
+            </form>
         </div>
     </div>
         <div class="general">
@@ -33,8 +50,12 @@
                 </tr>
                 </tbody>
             </table>
+
             <di>
-                <button type="button" class="btn btn-success">Nuevo Empresa</button>
+                <br>
+                <form>
+                    <button type="submit" formaction="/empresa" class="btn btn-success"> Nueva Empresa  </button>
+                </form>
             </di>
         </div>
 

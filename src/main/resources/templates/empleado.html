@@ -10,18 +10,24 @@
 <body>
 <div class="rectangulo">
     <img class="img" src="img/DOM3.png" h>
-
-
-    <div style="margin-top: 100px">
-        <button class="botones">Ingresos y engresos</button>
+    <br>
+    <br>
+    <div class="position-relative text-center">
+        <form>
+            <button type="submit" formaction="/TransactionTable" class="btn btn-success">  Transacciones  </button>
+        </form>
     </div>
     <br>
-    <div style="margin-top: 30px">
-        <button class="botones">Usuarios</button>
+    <div class="position-relative text-center">
+        <form>
+            <button type="submit" formaction="/employeetable" class="btn btn-success">  Empleados  </button>
+        </form>
     </div>
     <br>
-    <div style="margin-top: 30px">
-        <button class="botones">Empresas</button>
+    <div class="position-relative text-center">
+        <form>
+            <button type="submit" formaction="/empresaTable" class="btn btn-success"> Empresas  </button>
+        </form>
     </div>
 </div>
 
@@ -35,33 +41,35 @@
                 <h2> Nuevo Empleado </h2>
             </div>
             <div class="form-floating">
-                <input type="id" class="form-control" th:field="*{documentId}" id="floatingId">
+                <input type="number" class="form-control" th:field="*{documentId}" id="floatingId">
                 <label for="floatingId">Identificacion</label>
             </div>
             <div class="form-floating">
-                <input type="name" class="form-control" th:field="*{name}" id="floatingName">
+                <input type="text" class="form-control" th:field="*{name}" id="floatingName">
                 <label for="floatingName">Nombre</label>
             </div>
             <div class="form-floating">
-                <input type="correo" class="form-control" th:field="*{email}" id="floatingCorreo">
+                <input type="text" class="form-control" th:field="*{email}" id="floatingCorreo">
                 <label for="floatingCorreo">Correo</label>
             </div>
             <div class="form-floating">
-                <input type="telefono" class="form-control" th:field="*{phone}" id="floatingPhone">
+                <input type="text" class="form-control" th:field="*{phone}" id="floatingPhone">
                 <label for="floatingPhone">Telefono</label>
             </div>
             <div class="form-floating">
-                <input type="rol" class="form-control" th:field="*{admin}" id="floatingRol">
-                <label for="floatingRol">Es Admin? true or false</label>
+                <input type="text" class="form-control" th:field="*{admin}" id="floatingRol">
+                <label for="floatingRol">¿Es Administrador? true/false</label>
+            </div>
+            <div class="form-floating">
+                <input type="number" class="form-control" th:field="*{enterprise}" id="floatingEmterprice">
+                <label for="floatingEmterprice">Empresa</label>
             </div>
             <br>
             <div>
                 <button type="submit" class="btn btn-success">Aceptar</button>
             </div>
             <br>
-            <div>
-                <button type="submit" formaction="/employeetable" class="btn btn-success">Ir a la lista</button>
-            </div>
+
         </div>
     </div>
 </form>

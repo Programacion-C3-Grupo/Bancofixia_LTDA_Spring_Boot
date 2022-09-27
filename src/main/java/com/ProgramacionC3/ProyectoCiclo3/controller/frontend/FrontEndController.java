@@ -58,20 +58,15 @@ public class FrontEndController {
     {
         employeeController.insertar(employee);
         System.out.println(employee);
-        return "redirect:/empleado";
-    }
-
-    //@GetMapping("/employeetable")
-    //public String getemployeetable (Model model){
-      //  model.addAttribute("employees", employeeService.listar());
-       // return "employeetable";
-    //}
-
-    @GetMapping("/employeetable")
-    public String employeetable (Model model){
-        model.addAttribute("employees", employeeService.listar());
         return "redirect:/employeetable";
     }
+
+    @GetMapping("/employeetable")
+    public String getemployeetable (Model model){
+        model.addAttribute("employees", employeeService.listar());
+        return "employeetable";
+    }
+
     //----------------Transaccion-------------------------------
     @GetMapping("/Transaction")
     public String getTransaction(Model model)

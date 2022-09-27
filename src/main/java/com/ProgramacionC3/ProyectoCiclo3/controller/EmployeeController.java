@@ -5,6 +5,7 @@ import com.ProgramacionC3.ProyectoCiclo3.entities.Enterprise;
 import com.ProgramacionC3.ProyectoCiclo3.entities.UserResponse;
 import com.ProgramacionC3.ProyectoCiclo3.service.EmployeeService;
 import com.ProgramacionC3.ProyectoCiclo3.service.EnterpriseService;
+import com.ProgramacionC3.ProyectoCiclo3.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,9 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
+    private TransactionService transactionService;
 
     @Autowired
     private EnterpriseService enterpriseService;
