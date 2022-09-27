@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="css/estilos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>EmpresaTable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <div class="rectangulo">
+        <img class="img" src="img/DOM3.png">
+        <br>
+        <br>
+
+        <div class="position-relative text-center">
+            <form>
+                <button type="submit" formaction="/TransactionTable" class="btn btn-success">  Transacciones  </button>
+            </form>
+        </div>
+        <br>
+        <div class="position-relative text-center">
+            <form>
+                <button type="submit" formaction="/employeetable" class="btn btn-success">  Empleados  </button>
+            </form>
+        </div>
+        <br>
+        <div class="position-relative text-center">
+            <form>
+                <button type="submit" formaction="/empresaTable" class="btn btn-success"> Empresas  </button>
+            </form>
+        </div>
+    </div>
+        <div class="general">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Nit</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="empresa : ${empresas}">
+                    <td th:text="${empresa.nit}"></td>
+                    <td th:text="${empresa.name}"></td>
+                    <td th:text="${empresa.phone}"></td>
+                    <td th:text="${empresa.address}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <di>
+                <br>
+                <form>
+                    <button type="submit" formaction="/empresa" class="btn btn-success"> Nueva Empresa  </button>
+                </form>
+            </di>
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="css/estilos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Usuarios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+<div class="rectangulo">
+    <img class="img" src="img/DOM3.png" h>
+    <br>
+    <br>
+    <div class="position-relative text-center">
+        <form>
+            <button type="submit" formaction="/TransactionTable" class="btn btn-success">  Transacciones  </button>
+        </form>
+    </div>
+    <br>
+    <div class="position-relative text-center">
+        <form>
+            <button type="submit" formaction="/employeetable" class="btn btn-success">  Empleados  </button>
+        </form>
+    </div>
+    <br>
+    <div class="position-relative text-center">
+        <form>
+            <button type="submit" formaction="/empresaTable" class="btn btn-success"> Empresas  </button>
+        </form>
+    </div>
+</div>
+
+<div class="general">
+    <form method="post" th:action="@{/empleado}" class="position-relative text-center"
+          th:object="${formularioEmpleado}">
+        <div class="position-relative text-center">
+
+
+            <div>
+                <h2> Nuevo Empleado </h2>
+            </div>
+            <div class="form-floating">
+                <input type="number" class="form-control" th:field="*{documentId}" id="floatingId">
+                <label for="floatingId">Identificacion</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" th:field="*{name}" id="floatingName">
+                <label for="floatingName">Nombre</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" th:field="*{email}" id="floatingCorreo">
+                <label for="floatingCorreo">Correo</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" th:field="*{phone}" id="floatingPhone">
+                <label for="floatingPhone">Telefono</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" th:field="*{admin}" id="floatingRol">
+                <label for="floatingRol">¿Es Administrador? true/false</label>
+            </div>
+            <div class="form-floating">
+                <input type="number" class="form-control" th:field="*{enterprise}" id="floatingEmterprice">
+                <label for="floatingEmterprice">Empresa ID</label>
+            </div>
+            <br>
+            <div>
+                <button type="submit" class="btn btn-success">Aceptar</button>
+            </div>
+            <br>
+
+        </div>
+    </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+</html>
